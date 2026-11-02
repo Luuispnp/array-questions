@@ -1,11 +1,12 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 class Main {
     public static void main() {
-        Question4 question = new Question4();
-        question.ReverseAnArrayInPlace();
+        Question5 question = new Question5();
+        question.FindTheSecondLargestElement();
     }
 }
 
@@ -91,5 +92,29 @@ class Question4 {
         }
 
         System.out.println("Reversed array: " + Arrays.toString(anArray));
+    }
+}
+
+class Question5 {
+    public void FindTheSecondLargestElement() {
+        int[] array = new int[]{50, 42, 36, 41, 34};
+
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int num : array) {
+            if (num > largest) {
+                secondLargest = largest;
+                largest = num;
+            } else if (num > secondLargest && num != largest) {
+                secondLargest = num;
+            }
+        }
+
+        if (secondLargest == Integer.MIN_VALUE) {
+            System.out.println("There is no second largest element (all elements might be equal).");
+        } else {
+            System.out.println("The second largest element is: " + secondLargest);
+        }
     }
 }
