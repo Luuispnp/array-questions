@@ -1,9 +1,11 @@
 package org.example;
 
+import java.util.Arrays;
+
 class Main {
     public static void main() {
-        Question3 question3 = new Question3();
-        question3.CheckIfTwoArraysAreEqual();
+        Question4 question = new Question4();
+        question.ReverseAnArrayInPlace();
     }
 }
 
@@ -67,5 +69,27 @@ class Question3 {
 }
 
 class Question4 {
+    public void ReverseAnArrayInPlace() {
+        int[] anArray = new int[] {1, 2, 3, 4, 5};
 
+        int start = 0;
+        int end = anArray.length - 1;
+
+        while (start  < end) {
+            // 1. Store the start element temporarily
+            int temp = anArray[start];
+
+            // 2. Overwrite start white the end
+            anArray[start] = anArray[end];
+
+            // 3. Overwrite end with the stored start value
+            anArray[end] = temp;
+
+            // 4. Move pointers inward
+            start ++;
+            end --;
+        }
+
+        System.out.println("Reversed array: " + Arrays.toString(anArray));
+    }
 }
