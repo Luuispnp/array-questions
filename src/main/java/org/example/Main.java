@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 class Main {
     public static void main() {
-        Question5 question = new Question5();
-        question.FindTheSecondLargestElement();
+        Question6 question = new Question6();
+        question.MoveAllZerosToTheEnd();
     }
 }
 
@@ -116,5 +116,27 @@ class Question5 {
         } else {
             System.out.println("The second largest element is: " + secondLargest);
         }
+    }
+}
+
+class Question6 {
+    public void MoveAllZerosToTheEnd() {
+        int[] anArray = new int[] {0, 1, 0, 3, 12};
+
+        int insertPos = 0;
+
+        for (int i = 0; i < anArray.length; i++) {
+            if (anArray[i] != 0) {
+                anArray[insertPos] = anArray[i];
+                insertPos++;
+            }
+        }
+
+        while (insertPos < anArray.length) {
+            anArray[insertPos] = 0;
+            insertPos++;
+        }
+
+        System.out.println("Result: " + Arrays.toString(anArray));
     }
 }
